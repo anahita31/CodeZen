@@ -6,7 +6,7 @@
    ═══════════════════════════════════════════════════════════ */
 
 const CONFIG = {
-  API: localStorage.getItem('cz_api') || 'http://localhost:8000/api/v1',
+  API: localStorage.getItem('cz_api') || 'https://codezen-jggn.onrender.com/api/v1',
 };
 const apiRoot = () => CONFIG.API.replace(/\/api\/v1\/?$/, '');
 
@@ -2218,3 +2218,4 @@ async function viewProfile() {
 
 /* ═══════════════ BOOT ═══════════════ */
 router();
+
