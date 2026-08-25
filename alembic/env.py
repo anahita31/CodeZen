@@ -16,7 +16,7 @@ import app.models.models_init
 
 target_metadata = Base.metadata
 
-DATABASE_SYNC_URL = os.getenv("DATABASE_SYNC_URL") or os.getenv("DATABASE_URL", "").replace("postgresql+asyncpg://", "postgresql://")
+DATABASE_SYNC_URL = os.getenv("DATABASE_URL", "").replace("postgresql+asyncpg://", "postgresql://")
 config.set_main_option("sqlalchemy.url", DATABASE_SYNC_URL)
 
 
@@ -52,3 +52,4 @@ if context.is_offline_mode():
     run_migrations_offline()
 else:
     run_migrations_online()
+
