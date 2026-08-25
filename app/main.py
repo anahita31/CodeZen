@@ -35,7 +35,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://codezen-frontend-itlq.onrender.com"],
+    allow_origins=["https://codezen-frontend-itlq.onrender.com", "https://codezen-web.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -79,3 +79,4 @@ async def root():
         "docs": "http://localhost:8000/docs",
         "health": "http://localhost:8000/health",
     }
+
