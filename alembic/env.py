@@ -11,12 +11,13 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
+from app.core.config import settings
 from app.core.database import Base
 import app.models.models_init
 
 target_metadata = Base.metadata
 
-DATABASE_SYNC_URL = os.getenv("DATABASE_URL", "").replace("postgresql+asyncpg://", "postgresql://")
+DATABASE_SYNC_URL = settings.DATABASE_SYNC_URL
 config.set_main_option("sqlalchemy.url", DATABASE_SYNC_URL)
 
 
@@ -52,4 +53,6 @@ if context.is_offline_mode():
     run_migrations_offline()
 else:
     run_migrations_online()
+
+
 
