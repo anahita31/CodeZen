@@ -5,9 +5,7 @@ Revises: 001
 """
 
 from alembic import op
-import app.models.models_init
-from app.core.database import Base
-
+import sqlalchemy as sa
 
 revision = "002"
 down_revision = "001"
@@ -17,6 +15,12 @@ depends_on = None
 
 def upgrade() -> None:
     bind = op.get_bind()
+
+    # Create missing tables from the initial schema.
+    # This is safe because existing tables are checked first.
+    from app.core.database import Base
+    import app.models.models_init
+
     Base.metadata.create_all(bind=bind)
 
 
